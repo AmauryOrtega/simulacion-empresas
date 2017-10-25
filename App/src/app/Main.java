@@ -12,6 +12,7 @@ public class Main {
         ArrayList<Empresa> empresas = new ArrayList<>();
         for (int n = 1; n <= N_EMPRESAS_A_PROBAR; n++) {
             Empresa empresa = new Empresa(n);
+            System.out.println("EMPRESA CON [" + n + "] CARROS");
             // Simulando 1 año
             for (int i = 1; i <= 365; i++) {
                 System.out.println("----- [Dia " + i + "] -----");
