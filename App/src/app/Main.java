@@ -3,18 +3,30 @@ package app;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class Main {
 
     public static void main(String[] args) {
-        int N_EMPRESAS_A_PROBAR = 10;
-        int N_PRUEBAS = 5;
+        int N_CARROS_MIN;
+        int N_CARROS_MAX;
+        int N_PRUEBAS;
+        N_CARROS_MIN = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese el numero min de carros")
+        );
+        N_CARROS_MAX = Integer.parseInt(
+                JOptionPane.showInputDialog("Ingrese el numero max de carros")
+        );
+        N_PRUEBAS = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de veces que desea simular 1 año para las "
+                + "empresas desde " + N_CARROS_MIN + " carros hasta "
+                + N_CARROS_MAX + " carros"
+        ));
         boolean DEBUG = true;
         Map<Integer, Float> mejores = new HashMap<Integer, Float>();
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < N_PRUEBAS; j++) {
             // Probando para muchas empresas
             ArrayList<Empresa> empresas = new ArrayList<>();
-            for (int n = 1; n <= N_EMPRESAS_A_PROBAR; n++) {
+            for (int n = N_CARROS_MIN; n <= N_CARROS_MAX; n++) {
                 Empresa empresa = new Empresa(n);
                 System.out.println("EMPRESA CON [" + n + "] CARROS");
                 // Simulando 1 año
