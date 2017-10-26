@@ -17,7 +17,8 @@ public class Main {
         N_CARROS_MAX = Integer.parseInt(
                 JOptionPane.showInputDialog("Ingrese el numero max de carros")
         );
-        N_PRUEBAS = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de veces que desea simular 1 año para las "
+        N_PRUEBAS = Integer.parseInt(JOptionPane.showInputDialog(
+                "Ingrese el numero de veces que desea simular 1 año para las "
                 + "empresas desde " + N_CARROS_MIN + " carros hasta "
                 + N_CARROS_MAX + " carros"
         ));
@@ -47,7 +48,7 @@ public class Main {
                     n_carros = empresa.n_carros_inicial;
                 }
             }
-            System.out.println("\nMEJOR CON " + n_carros + " que dio " + mejor + " en utilidad bruta");
+            System.out.println("\nFIN PRUEBA " + j +"\nMEJOR CON " + n_carros + " que dio " + mejor + " en utilidad bruta");
             if (!mejores.containsKey(n_carros)) {
                 mejores.put(n_carros, Float.parseFloat("1"));
             } else {
@@ -57,6 +58,7 @@ public class Main {
         for (Integer mejor : mejores.keySet()) {
             mejores.put(mejor, mejores.get(mejor) / N_PRUEBAS);
         }
+        System.out.println("\n-----------------------------------------------");
         System.out.println("Probabilidad despues de correr todo " + mejores);
     }
 }
